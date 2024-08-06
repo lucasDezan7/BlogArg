@@ -1,0 +1,23 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+
+{% block titulo %}Pagin-Inicio{% endblock titulo %}
+
+
+{% block favicon %}
+<link rel="icon" type="image/x-icon" href="{% static 'blog/assets/favicon1.ico' %}" />
+{% endblock favicon %}
+
+
+
+{% block presentacion %}
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1 class="fw-bolder">Bienvenidos a BlogArg </h1>
+            <p class="lead mb-0">La mejor pagina de Blog de Argentina</p>
+        </div>
+    </div>
+</header>
+{% endblock presentacion %}

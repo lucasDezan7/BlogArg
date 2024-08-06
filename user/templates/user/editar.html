@@ -1,0 +1,33 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+
+{% block titulo %}Login-Edit{% endblock titulo %}
+
+{% block presentacion %}
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1 class="fw-bolder">Editar</h1>
+        </div>
+    </div>
+</header>
+{% endblock presentacion %}
+
+
+
+{% block register %}
+<form action="" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <table>
+
+        {{ miform.as_table }}
+        <a class="btn btn-primary" href="{% url 'CambiarContraseña' %}">Cambiar Contraseña</a>
+        <input type="submit" value="Actualizar">
+
+    </table>
+
+
+</form>
+{% endblock register %}
