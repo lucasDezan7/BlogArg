@@ -5,8 +5,8 @@ from django.conf import settings
 
 
 class Avatar(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True, blank=True)
     imagen = models.ImageField(upload_to='avatares', null=True, blank=True)
 
     def __str__(self):
-        return f'{settings.MEDIA_URL}{self.imagen}'
+        return f'Foto de: {self.user.first_name}'

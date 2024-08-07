@@ -41,8 +41,11 @@ def Editar(respuesta):
     usuario = respuesta.user
 
     if respuesta.method == 'POST':
-        miform = UserEditForm(respuesta.POST, instance=usuario)
+        miform = UserEditForm(respuesta.POST, respuesta.FILES, instance=usuario)
         if miform.is_valid():
+            if miform.cleaned_data.get('imagen'):
+                usuario.avatar.imagen = miform.cleaned_data.get('imagen')
+                usuario.avatar.save()
             miform.save()
             return render(respuesta, 'blog/inicio.html')
     else:
