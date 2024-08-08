@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+
+{% block titulo %}blog-ver-mas{% endblock titulo %}
+{% block register %}
+{% block presentacion %}
+
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1 class="fw-bolder">Detellas del Posteo </h1>
+        </div>
+    </div>
+</header>
+
+<p>Titulo: <i>{{blog.titulo}}</i></p>
+<p>Sub Titulo: <i>{{blog.sub_titulo}}</i></p>
+<p>Autor: <i>{{blog.autor}}</i></p>
+<p>Fecha del Post: <i>{{blog.fecha}}</i></p>
+<p>
+    <a href="{% url 'Blog_Posteos' %}">
+        <button type="button" class="btn btn-secondary">volver</button>
+    </a>
+</p>
+
+{% endblock presentacion %}
+{% endblock register %}

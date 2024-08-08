@@ -1,0 +1,31 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+
+{% block titulo %}blog-Editar{% endblock titulo %}
+{% block register %}
+{% block presentacion %}
+
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1 class="fw-bolder">Edita tu Posteo</h1>
+        </div>
+    </div>
+</header>
+
+<form action="" method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+    {{form.as_p}}
+    <input type="submit" value="Editar">
+    <a href="{% url 'Blog_Posteos' %}">
+        <button type="button" class="btn btn-secondary">volver</button>
+    </a>
+
+
+</form>
+
+{% endblock presentacion %}
+{% endblock register %}
+

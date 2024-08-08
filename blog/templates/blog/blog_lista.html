@@ -1,0 +1,35 @@
+{% extends 'blog/base.html' %}
+
+{% load static %}
+
+{% block titulo %}blog-Posteos{% endblock titulo %}
+
+{% block register %}
+
+{% block post %}
+
+
+<a href="{% url 'Blog_Crear' %}">
+    <button type="button" class="btn btn-secondary">Nuevo Post</button>
+</a>
+    {% for blog in blogs %}
+    <div class="card" style="width: 18rem;">
+        <h5 class="card-title">{{ blog.titulo }}</h5>
+        <img src="{{ blog.imagen.url }}" class="card-img-top" alt="{{ blog.titulo }}">
+        <div class="card-body">
+          <a href="{% url 'Blog_Detalle' blog.pk %}" class="btn btn-secondary">Ver</a>
+          {% if user.is_superuser %}
+          <a href="{% url 'blog_Editar' blog.pk %}" class="btn btn-secondary">Editar</a> 
+          <a href="{% url 'blog_Borrar' blog.pk %}" class="btn btn-secondary">Borrar</a>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+
+
+
+{% endblock post %}
+
+
+{% endblock register %}
+

@@ -9,4 +9,4 @@ class Avatar(models.Model):
     imagen = models.ImageField(upload_to='avatares', null=True, blank=True)
 
     def __str__(self):
-        return f'Foto de: {self.user.first_name}'
+        return f'Foto de: {self.user.first_name}- {self.imagen}'
