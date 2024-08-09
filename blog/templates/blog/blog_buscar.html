@@ -1,0 +1,36 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block titulo %}Pagina-Busqueda{% endblock titulo %}
+
+{% block presentacion %}
+<header class="py-5 bg-light border-bottom mb-4">
+    <div class="container">
+        <div class="text-center my-5">
+            <h1 class="fw-bolder">Buscando Posteos </h1>
+        </div>
+    </div>
+</header>
+
+
+<form method="GET"action="{% url 'blog_Buscar' %}">
+    {{ form.as_p }}
+    <button type="submit">Buscar</button>
+</form>
+
+{% if resultados %}
+<h2>Resultados</h2>
+<ul>
+    {% for blog in resultados %}
+    <li>
+        <a href="{% url 'Blog_Detalle' blog.pk %}">{{ blog.titulo }} | {{blog.autor}}
+    </li>
+    
+    {% empty %}
+    <li>No se encontraron resultados.</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock presentacion %}
+
+
