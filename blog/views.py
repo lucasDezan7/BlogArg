@@ -11,6 +11,12 @@ from .forms import BuscarBlogForm
 def inicio(request):
     return render(request,'blog/inicio.html')
 
+def about(request):
+    return render(request,'blog/about.html')
+
+def contact(request):
+    return render(request,'blog/contact.html')
+
 class BlogListView(LoginRequiredMixin, ListView):
     model = Blog
     context_object_name = 'blogs'

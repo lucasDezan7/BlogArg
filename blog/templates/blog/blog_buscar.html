@@ -23,7 +23,7 @@
 <ul>
     {% for blog in resultados %}
     <li>
-        <a href="{% url 'Blog_Detalle' blog.pk %}">{{ blog.titulo }} | {{blog.autor}}
+        <a href="{% url 'Blog_Detalle' blog.pk %}">{{ blog.titulo }}</a> | {{blog.autor}}
     </li>
     
     {% empty %}

@@ -4,6 +4,8 @@ from .views import *
 
 urlpatterns = [
     path('', inicio, name='Inicio'),
+    path('about/', about, name='About'),
+    path('contact', contact, name='contacto'),
     path('posteos', BlogListView.as_view(), name='Blog_Posteos'),
     path('blog/<int:pk>/', BlogDetailView.as_view(), name='Blog_Detalle'),
     path('blog/crear/', BlogCreateView.as_view(), name='Blog_Crear'),
