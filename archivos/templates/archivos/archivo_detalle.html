@@ -1,0 +1,77 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block tiutlo %}Pagina-Archivos{% endblock tiutlo %}
+{% block presentacion %}
+
+<div class="archivo-detalle-container">
+  <h2>{{ archivo.titulo }}</h2>
+  <p class="archivo-info">Subido por {{ archivo.subido_por.username }} en {{ archivo.subido_en }}</p>
+  <a href="{{ archivo.archivo.url }}" class="btn btn-download" download>Descargar archivo</a>
+
+  <form action="{% url 'Archivo_borrar' archivo.pk %}" method="post" class="archivo-form">
+      {% csrf_token %}
+      <button type="submit" class="btn btn-delete">Borrar archivo</button>
+  </form>
+
+  <p>
+      <a href="{% url 'archivo_lista' %}" class="btn btn-secondary">Volver</a>
+  </p>
+</div>
+
+
+<style>
+.archivo-detalle-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+.archivo-info {
+  text-align: center;
+  color: #555;
+  margin-bottom: 20px;
+}
+.btn {
+  display: inline-block;
+  padding: 10px 20px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+.btn-download {
+  background-color: #007BFF;
+}
+.btn-download:hover {
+  background-color: #0056b3;
+}
+.btn-delete {
+  background-color: #dc3545;
+  margin-top: 10px;
+}
+.btn-delete:hover {
+  background-color: #c82333;
+}
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+  text-decoration: none;
+}
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+.archivo-form {
+  text-align: center;
+  margin: 20px 0;
+}
+</style>
+
+{% endblock presentacion %}

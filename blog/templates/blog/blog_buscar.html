@@ -4,33 +4,87 @@
 {% block titulo %}Pagina-Busqueda{% endblock titulo %}
 
 {% block presentacion %}
-<header class="py-5 bg-light border-bottom mb-4">
-    <div class="container">
-        <div class="text-center my-5">
-            <h1 class="fw-bolder">Buscando Posteos </h1>
+<div class="busqueda-container">
+    <h2>Buscar en el Blog</h2>
+    <form method="GET" action="{% url 'blog_Buscar' %}" class="busqueda-form">
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-submit">Buscar</button>
+    </form>
+
+    {% if resultados %}
+        <div class="resultados-container">
+            <h2>Resultados</h2>
+            <ul class="resultados-lista">
+                {% for blog in resultados %}
+                    <li class="resultado-item">
+                        <a href="{% url 'Blog_Detalle' blog.pk %}" class="resultado-link">{{ blog.titulo }}</a> 
+                        | {{ blog.autor }}
+                    </li>
+                {% empty %}
+                    <li class="resultado-item">No se encontraron resultados.</li>
+                {% endfor %}
+            </ul>
         </div>
-    </div>
-</header>
+    {% endif %}
+</div>
 
 
-<form method="GET"action="{% url 'blog_Buscar' %}">
-    {{ form.as_p }}
-    <button type="submit">Buscar</button>
-</form>
-
-{% if resultados %}
-<h2>Resultados</h2>
-<ul>
-    {% for blog in resultados %}
-    <li>
-        <a href="{% url 'Blog_Detalle' blog.pk %}">{{ blog.titulo }}</a> | {{blog.autor}}
-    </li>
-    
-    {% empty %}
-    <li>No se encontraron resultados.</li>
-    {% endfor %}
-</ul>
-{% endif %}
+<style>
+.busqueda-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+.busqueda-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.btn-submit {
+    align-self: center;
+    padding: 10px 20px;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+.btn-submit:hover {
+    background-color: #0056b3;
+}
+.resultados-container {
+    margin-top: 20px;
+}
+.resultados-lista {
+    list-style: none;
+    padding: 0;
+}
+.resultado-item {
+    background: #fff;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.resultado-link {
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
+.resultado-link:hover {
+    text-decoration: underline;
+}
+</style>
 {% endblock presentacion %}
 
 

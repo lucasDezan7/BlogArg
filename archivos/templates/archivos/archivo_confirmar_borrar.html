@@ -1,0 +1,12 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block tiutlo %}Pagina-Archivos{% endblock tiutlo %}
+{% block presentacion %}
+
+<h2>confirmar {{ archivo.titulo }}?</h2>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">si, borrar</button>
+</form>
+
+{% endblock presentacion %}

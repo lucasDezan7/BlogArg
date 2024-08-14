@@ -1,0 +1,13 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block tiutlo %}Pagina-Archivos{% endblock tiutlo %}
+{% block presentacion %}
+
+<h2>Subir nuevo archivo</h2>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Subir</button>
+</form>
+
+{% endblock presentacion %}

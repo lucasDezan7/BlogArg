@@ -10,6 +10,10 @@ urlpatterns = [
     path('', include('blog.urls')),
     path('user/', include('user.urls')),
     path('comentarios/', include('comentarios.urls')),
+    path('archivos/', include('archivos.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
