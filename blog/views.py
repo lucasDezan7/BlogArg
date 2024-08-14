@@ -8,6 +8,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import BuscarBlogForm
 
 
+
+
 def inicio(request):
     return render(request,'blog/inicio.html')
 
@@ -26,6 +28,8 @@ class BlogListView(LoginRequiredMixin, ListView):
         return super().get(request, *args, **kwargs)
 
 
+
+
 class BlogDetailView(DetailView):
     model = Blog
     template_name = 'blog/blog_Detalle.html'
@@ -35,13 +39,7 @@ class BlogCreateView(CreateView):
     model = Blog
     template_name = 'blog/BlogCrear.html'
     success_url = reverse_lazy('Blog_Posteos')
-    fields = [
-        'titulo',
-        'sub_titulo',
-        'autor',
-        'fecha',
-        'imagen',
-    ]
+    fields = ['titulo','sub_titulo','autor','imagen']
 
 
 
@@ -49,13 +47,8 @@ class BlogUpdateView(UpdateView):
     model = Blog
     template_name = 'blog/blog_editar.html'
     success_url = reverse_lazy('Blog_Posteos')
-    fields = [
-        'titulo',
-        'sub_titulo',
-        'autor',
-        'fecha',
-        'imagen',
-    ]
+    fields = ['titulo','sub_titulo','autor','imagen']
+
 
 class BlogDeleteView(DeleteView):
     model = Blog

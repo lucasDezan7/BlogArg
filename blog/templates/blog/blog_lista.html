@@ -21,7 +21,7 @@
           <div class="col-md-8">
               <div class="card-body">
                   <h5 class="card-title">{{ blog.titulo }}</h5>
-                  <p class="card-text">{{ blog.descripcion }}</p>
+                  <p class="card-text">{{ blog.sub_titulo }}</p>
                   <p class="card-text"><small class="text-body-secondary">Última actualización: {{ blog.fecha }}</small></p>
                   <a href="{% url 'Blog_Detalle' blog.pk %}" class="btn btn-secondary">Ver</a>
                   <a href="{% url 'agregar_comentario' blog.pk %}" class="btn btn-secondary">Comentar</a>
