@@ -1,0 +1,3 @@
+Nombre del autor del projecto: Lucas De Zan
+Descripccion del projecto: En el projecto se intento trabajar un blog con una logica parecida a twitter donde se hace un modelamiento de usuarios que pueden publicar temas a eleccion con imagen y estos se pueden comentar tambien se estuvo trabajando para poder subir y descargar archivos.
+Que se hizo? Se trabajo un sistema de Registro con django, se puede editar y cargar un avatar. Se implemento un sistema de publicaciones que se pueden dejar comentario y un sistema para subir y descargar archivos. Sistema de busqueda para las publicaciones. Limitaciones para usuarios normales de vip y se trabajo el uso de plantillas html con boostrap
