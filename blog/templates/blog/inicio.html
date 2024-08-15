@@ -14,58 +14,92 @@
 {% block presentacion %}
 
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página de Inicio</title>
-    <style>
-        body, html {
-            height: 100%;
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
-        .bg {
-            background-image: url({% static 'inicio\assets\img\about\argentina.jpeg' %});
-            height: 100%;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
+<style>
+    body, html {
+        height: 100%;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+    }
 
-        .centered-content {
-            text-align: center;
-            color: white;
-        }
+    .bg {
+        background-image: url({% static 'inicio/assets/img/about/argentina.jpeg' %});
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
 
-        .centered-content a, .centered-content button {
-            display: block;
-            margin: 10px;
-            padding: 10px 20px;
-            text-decoration: none;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.5);
-            border: none;
-            border-radius: 5px;
-        }
+    .centered-content {
+        text-align: center;
+        color: white;
+    }
 
-        .centered-content button:hover, .centered-content a:hover {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-    </style>
+    .centered-content a, .centered-content button {
+        display: block;
+        margin: 10px;
+        padding: 10px 20px;
+        text-decoration: none;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.5);
+        border: none;
+        border-radius: 5px;
+    }
+
+    .centered-content button:hover, .centered-content a:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .icon-link {
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        color: white;
+        font-size: 24px;
+        text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 50%;
+    }
+
+    .icon-link:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .icon-about {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        color: white;
+        font-size: 24px;
+        text-decoration: none;
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 10px;
+        border-radius: 50%;
+    }
+
+    .icon-about:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+</style>
 </head>
 
 <body>
-    <div class="bg">
-        <div class="centered-content">
-            <button onclick="window.location.href='{% url "Blog_Posteos" %}'">Post de la comunidad BlogArg</button>
-            <a href="{% url 'blog_Buscar' %}">Buscar Post</a>
-        </div>
+<div class="bg">
+    <div class="centered-content">
+        <button onclick="window.location.href='{% url "Blog_Posteos" %}'">Post de la comunidad BlogArg</button>
+        <a href="{% url 'blog_Buscar' %}">Buscar Post</a>
     </div>
+    <!-- Icono de contacto -->
+    <a href="{% url 'contacto' %}" class="icon-link"><i class="fas fa-envelope"></i></a>
+    <!-- Icono de about -->
+    <a href="{% url 'About' %}" class="icon-about"><i class="fas fa-info-circle"></i></a>
+</div>
 </body>
 </html>
 
